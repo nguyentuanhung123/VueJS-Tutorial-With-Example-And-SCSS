@@ -50,9 +50,7 @@ component: () => Home
 path: '/about',
 component: () => import ('./views/About.vue')
 },
-
-    ]
-
+]
 })  
 B3: Sửa createApp(App).mount('#app') => createApp(App).use(router).mount('#app')
 B4: Sửa trong App.vue
@@ -75,9 +73,7 @@ component: () => Home
 path: '/about',
 component: () => import ('./views/About.vue')
 },
-
-    ]
-
+]
 })  
 B8: Paste vào index.js vừa tạo
 B9: Sửa
@@ -86,6 +82,11 @@ component: () => import ('./views/About.vue') -> import ('../views/About.vue')
 B10: Bổ sung bên dưới :
 export default router
 B11: import router from './router' trong main.js
+B12: Bổ sung trong Sidebar hoặc Navbar
+<router-link class="button" to="/about">
+<span class="material-icons">document</span>
+<span class="text">About</span>
+</router-link>
 
 ## Các bước chuẩn bị
 

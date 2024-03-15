@@ -9,6 +9,35 @@
             <span class="material-icons" @click="ToggleMenu">keyboard_double_arrow_right</span>
         </button>
     </div>
+
+    <h3>Menu</h3>
+    <div class="menu">
+        <router-link class="button" to="/">
+            <span class="material-icons">home</span>
+            <span class="text">Home</span>
+        </router-link>
+        <router-link class="button" to="/about">
+            <span class="material-icons">visibility</span>
+            <span class="text">About</span>
+        </router-link>
+        <router-link class="button" to="/team">
+            <span class="material-icons">group</span>
+            <span class="text">Team</span>
+        </router-link>
+        <router-link class="button" to="/contact">
+            <span class="material-icons">email</span>
+            <span class="text">Contact</span>
+        </router-link>
+    </div>
+
+    <div class="flex"></div>
+
+    <div class="menu">
+        <router-link class="button" to="/settings">
+            <span class="material-icons">settings</span>
+            <span class="text">Settings</span>
+        </router-link>
+    </div>
   </aside>
 </template>
 
@@ -37,6 +66,10 @@ aside{
 
     transition: 0.2s ease-out;
 
+    .flex {
+        flex: 1 1 0;
+    }
+
     .logo {
         margin-bottom: 1rem;
 
@@ -60,11 +93,67 @@ aside{
             .material-icons{
                 font-size: 2rem;
                 color: var(--light);
+                transition: 0.2s ease-out;
+            }
+
+            &:hover {
+                .material-icons{
+                    color: var(--primary);
+                    transform: translateX(0.5rem);
+                }
             }
         }
     }
 
-    &.is-expanded{
+    h3, .button .text{
+        opacity: 0;
+        transition: 0.3s ease-out;
+    }
+
+    h3{
+        color: var(--grey);
+        font-size: 0.875rem;
+        margin-bottom: 0.5rem;
+        text-transform: uppercase;
+    }
+
+    .menu {
+        margin: 0 -1rem; /* Do ta đang để padding của sidebar là 1rem nên nếu ta muốn những thẻ a trồi ra ngoài ta phải để margin left and right là -1rem */
+
+        .button {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+
+            padding: 0.5rem 1rem;
+            transition: 0.2s ease-out;
+            
+            .material-icons{
+                font-size: 2rem;
+                color: var(--light);
+                transition: 0.2s ease-out;
+            }
+
+            .text{
+                color: var(--light);
+                transition: 0.2s ease-out;
+            }
+
+            &:hover, &.router-link-exact-active {
+                background-color: var(--dark-alt);
+
+                .material-icons, .text{
+                    color: var(--primary);
+                }
+            }
+
+            &.router-link-exact-active{
+                border-right: 5px solid var(--primary);
+            }
+        }
+    }
+
+    &.is-expanded {
         width: var(--sidebar-width); /* Phải có & mới có thể sử dụng css trong thẻ aside này do nó lúc có lúc không */
 
         .menu-toggle-wrap{
@@ -72,6 +161,16 @@ aside{
 
             .menu-toggle{
                 transform: rotate(-180deg);
+            }
+        }
+
+        h3, .button .text{
+            opacity: 1;
+        }
+ 
+        .button {
+            .material-icons {
+                margin-right: 1rem;
             }
         }
     }
