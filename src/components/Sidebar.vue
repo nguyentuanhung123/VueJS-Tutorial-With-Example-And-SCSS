@@ -10,6 +10,11 @@
         </button>
     </div>
 
+    <div class="search-wrap">
+        <span class="material-icons">search</span>
+        <input class="search-input" type="search" placeholder="Search"/>
+    </div>
+
     <h3>Menu</h3>
     <div class="menu">
         <router-link class="button" to="/">
@@ -121,8 +126,37 @@ aside{
         text-transform: uppercase;
     }
 
+    .search-wrap {
+        margin: 0 -1rem;
+        /* background-color: var(--dark-alt); */
+        margin-bottom: 13px;
+        padding: 0.5rem 1rem;
+
+        display: flex;
+        align-items: center;
+
+        .material-icons{
+            font-size: 2rem;
+            color: var(--light);
+            transition: 0.2s ease-out;
+            cursor: pointer;
+        }
+        
+        .search-input{
+            background-color: transparent;
+            width: 100%;
+            outline: none;
+            border: none;
+            opacity: 0;
+            color: var(--light);
+            height: 100%;
+        }
+
+    }
+
     .menu {
-        margin: 0 -1rem; /* Do ta đang để padding của sidebar là 1rem nên nếu ta muốn những thẻ a trồi ra ngoài ta phải để margin left and right là -1rem */
+        /* Do ta đang để padding của sidebar là 1rem nên nếu ta muốn những thẻ a trồi ra ngoài ta phải để margin left and right là -1rem */
+        margin: 0 -1rem;
 
         .button {
             display: flex;
@@ -176,6 +210,14 @@ aside{
             .material-icons {
                 margin-right: 1rem;
             }
+        }
+
+        .search-wrap{
+            background-color: var(--dark-alt);
+        }
+
+        .search-input{
+            opacity: 1;
         }
     }
 
